@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import ValueObject.VOMensages;
+import ValueObject.VOMensajes;
 import Excepciones.PersistenciaException;
 
 
@@ -12,12 +12,12 @@ import Excepciones.PersistenciaException;
 public class Persistencia {
 	private String Ruta="./datos.dat";
 	
-	public VOMensages Recuperar() throws PersistenciaException,  java.lang.ClassNotFoundException {
+	public VOMensajes Recuperar() throws PersistenciaException,  java.lang.ClassNotFoundException {
 		try {
 			FileInputStream fileIn = new FileInputStream(Ruta);
 			ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 	
-			VOMensages recuperado = (VOMensages) objectIn.readObject();
+			VOMensajes recuperado = (VOMensajes) objectIn.readObject();
 	
 			objectIn.close();
 			fileIn.close();
@@ -29,7 +29,7 @@ public class Persistencia {
 	
 	
 	
-	public void Respaldar(VOMensages vo) throws PersistenciaException  {
+	public void Respaldar(VOMensajes vo) throws PersistenciaException  {
 		try {
 			FileOutputStream fileOut = new FileOutputStream(Ruta);
 			ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);

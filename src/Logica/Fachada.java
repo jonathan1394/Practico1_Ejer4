@@ -1,25 +1,25 @@
 package Logica;
-import Logica.Mensage;
+import Logica.Mensaje;
 import java.util.List;
 
-import ValueObject.VOMensages;
+import ValueObject.VOMensajes;
 
 public class Fachada {
 
-	private List<Mensage> M;
+	private List<Mensaje> M;
 
-	public Fachada(List<Mensage> m) {
+	public Fachada(List<Mensaje> m) {
 		super();
 		M = m;
 	}
 	
-	public void IngresarMensages(VOMensages VOM) {
+	public void IngresarMensages(VOMensajes VOM) {
 		//desde la GUI traemos el texto y el Usuario (Ahora lo hacemos Harcode) lo guardamos en un VO y lo manejamos aca
 	}
 	
-	public List<VOMensages> ListarMensages(){
+	public List<VOMensajes> ListarMensages(){
 		//Obtenemos la lista la pasamos a VO y se la mandamos a la GUI para mostrar
-		List<VOMensages> LM=null;
+		List<VOMensajes> LM=null;
 		
 		return LM;
 		

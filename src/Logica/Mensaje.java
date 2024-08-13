@@ -1,10 +1,10 @@
 package Logica;
 
-public class Mensage {
+public class Mensaje {
  private String Mensage;
  private String Usuario;
 
- public Mensage(String mensage, String usuario) {
+ public Mensaje(String mensage, String usuario) {
 	super();
 	Mensage = mensage;
 	Usuario = usuario;

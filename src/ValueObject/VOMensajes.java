@@ -1,12 +1,12 @@
 package ValueObject;
 
-public class VOMensages {
+public class VOMensajes {
 
 
 	private String Mensaje;
 	private String Usuario;
 	
-	public VOMensages(String mensaje, String usuario) {
+	public VOMensajes(String mensaje, String usuario) {
 		super();
 		Mensaje = mensaje;
 		Usuario = usuario;
