@@ -10,9 +10,11 @@ import Excepciones.PersistenciaException;
 
 
 public class Persistencia {
-	public VOMensages Recuperar(String NombreArchivo) throws PersistenciaException,  java.lang.ClassNotFoundException {
+	private String Ruta="./";
+	
+	public VOMensages Recuperar() throws PersistenciaException,  java.lang.ClassNotFoundException {
 		try {
-			FileInputStream fileIn = new FileInputStream(NombreArchivo);
+			FileInputStream fileIn = new FileInputStream(Ruta);
 			ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 	
 			VOMensages recuperado = (VOMensages) objectIn.readObject();
@@ -27,9 +29,9 @@ public class Persistencia {
 	
 	
 	
-	public void Respaldar(String NombreArchivo, VOMensages vo) throws PersistenciaException  {
+	public void Respaldar(VOMensages vo) throws PersistenciaException  {
 		try {
-			FileOutputStream fileOut = new FileOutputStream(NombreArchivo);
+			FileOutputStream fileOut = new FileOutputStream(Ruta);
 			ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 	
 			// Guarda todos los datos relevantes en el archivo binario
