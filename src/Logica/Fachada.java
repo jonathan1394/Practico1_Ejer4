@@ -13,11 +13,11 @@ public class Fachada {
 		M = m;
 	}
 	
-	public void IngresarMensages(VOMensajes VOM) {
+	public void IngresarMensajes(VOMensajes VOM) {
 		//desde la GUI traemos el texto y el Usuario (Ahora lo hacemos Harcode) lo guardamos en un VO y lo manejamos aca
 	}
 	
-	public List<VOMensajes> ListarMensages(){
+	public List<VOMensajes> ListarMensajes(){
 		//Obtenemos la lista la pasamos a VO y se la mandamos a la GUI para mostrar
 		List<VOMensajes> LM=null;
 		
@@ -25,11 +25,11 @@ public class Fachada {
 		
 	}
 	
-	public void RespaldarMensage () {
+	public void RespaldarMensaje () {
 		
 	}
 	
-	public void RecuperarMensage () {
+	public void RecuperarMensaje () {
 		
 	}
 

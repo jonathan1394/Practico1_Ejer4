@@ -11,6 +11,7 @@ import java.awt.FlowLayout;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class VAdminChatVer extends JFrame {
 
@@ -50,6 +51,7 @@ public class VAdminChatVer extends JFrame {
 		panel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(10, 10, 268, 444);
 		panel.add(scrollPane);
 		

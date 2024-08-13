@@ -1,21 +1,21 @@
 package Logica;
 
 public class Mensaje {
- private String Mensage;
+ private String Mensaje;
  private String Usuario;
 
- public Mensaje(String mensage, String usuario) {
+ public Mensaje(String mensaje, String usuario) {
 	super();
-	Mensage = mensage;
+	Mensaje = mensaje;
 	Usuario = usuario;
  }
 
-public String getMensage() {
-	return Mensage;
+public String getmensaje() {
+	return Mensaje;
 }
 
-public void setMensage(String mensage) {
-	Mensage = mensage;
+public void setmensaje(String mensaje) {
+	Mensaje = mensaje;
 }
 
 public String getUsuario() {
