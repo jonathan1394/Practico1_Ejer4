@@ -10,7 +10,7 @@ import Excepciones.PersistenciaException;
 
 
 public class Persistencia {
-	private String Ruta="./";
+	private String Ruta="./datos.dat";
 	
 	public VOMensages Recuperar() throws PersistenciaException,  java.lang.ClassNotFoundException {
 		try {
