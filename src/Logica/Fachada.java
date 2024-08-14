@@ -1,51 +1,53 @@
 package Logica;
-import Logica.Mensaje;
 import Persistencia.Persistencia;
+
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
-
 import Excepciones.PersistenciaException;
-import ValueObject.VOMensajes;
 
-public class Fachada {
 
-	private List<Mensaje> M;
 
-	public Fachada(List<Mensaje> m) {
+public class Fachada implements Ifachada{
+
+	private List<String> M=new ArrayList<String>();
+
+	public Fachada() {
 		super();
-		M = m;
 	}
 	
-	public void IngresarMensajes(VOMensajes VOM) {
+	public void IngresarMensajes(String Mensage) throws RemoteException  {
 		//desde la GUI traemos el texto y el Usuario (Ahora lo hacemos Harcode) lo guardamos en un VO y lo manejamos aca
-		Mensaje m=null;
-		m.setmensaje(VOM.getMensaje());
-		m.setUsuario("Null");
-		M.add(m);
+		M.add(Mensage);
 	}
 	
-	public List<VOMensajes> ListarMensajes(){
+	public List<String> ListarMensajes() throws RemoteException {
 		//Obtenemos la lista la pasamos a VO y se la mandamos a la GUI para mostrar
-		List<VOMensajes> LM=null;
-		for (Mensaje aux : M) {
-			VOMensajes voaux = new VOMensajes(aux.getmensaje(), aux.getUsuario());
-			LM.add(voaux);
+		List<String> LM = new ArrayList<String>();
+		for (String aux : M) {
+			LM.add(aux);
 		}
 		return LM;
 	}
 	
-	public void RespaldarMensaje () throws PersistenciaException {
+	public void RespaldarMensaje () throws PersistenciaException,RemoteException {
 		Persistencia p=new Persistencia();
-		List<VOMensajes> LM=null;
-		for (Mensaje aux : M) {
-			VOMensajes voaux = new VOMensajes(aux.getmensaje(), aux.getUsuario());
-			LM.add(voaux);
-		}
-		p.Respaldar(LM);
+		p.Respaldar(M);
 
 	}
 	
-	public void RecuperarMensaje () {
-		
+	public void RecuperarMensaje () throws PersistenciaException,RemoteException{
+		try {
+			Persistencia p = new Persistencia();
+			List<String> LM = p.Recuperar();
+			for(String MSJ : LM) {
+				M.add(MSJ);
+			}
+		} catch (Exception e) {
+
+			throw new PersistenciaException ("Error al Recuperar.");
+		}
 	}
 
 }
