@@ -8,18 +8,21 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Properties;
 
-import Excepciones.PersistenciaException;
 
-import java.util.List;
+import Excepciones.PersistenciaException;
 import Grafica.VAdminChatVer;
+import Grafica.VAdminRespaldar;
+import Grafica.VClienteChat;
 import Grafica.VentanaError;
+import Grafica.vMenu;
 import Logica.IFachada;
 
-public class ControladorAdminChatVer {
+public class ControladorMenu {
 	private IFachada f = null;
-	private VAdminChatVer MiVentana;
+	private vMenu MiVentana;
 
-	public ControladorAdminChatVer(VAdminChatVer VP) {
+	public ControladorMenu(vMenu VP) {
+		// TODO Auto-generated constructor stub
 		try {
 			this.MiVentana = VP;
 			Properties p = new Properties();
@@ -48,16 +51,32 @@ public class ControladorAdminChatVer {
 		MiVentana.setHayError(true);
 		VentanaError VE= new VentanaError(error);
 		VE.setVisible(true);
-
 	}
 	
-	public String ListarMensaje() throws RemoteException, PersistenciaException {
-		f.RecuperarMensaje();
-		List<String> L = f.ListarMensajes();
-		String aux="";
-		for(String S:L) {
-			aux = aux + S + "\n";
+	public void AdminChatVer() {
+		VAdminChatVer VACV = new VAdminChatVer();
+		if(VACV.getHayError()) {
+			VACV.dispose();
+		}else {
+			VACV.setVisible(true);
 		}
-		return aux;
+	}
+	
+	public void AdminRespaldar() throws RemoteException, PersistenciaException {
+		VAdminRespaldar VAR = new VAdminRespaldar();
+		if(VAR.getHayError()) {
+			VAR.dispose();
+		}else {
+			VAR.setVisible(true);
+		}
+	}
+	
+	public void ClienteChat(){
+		VClienteChat VCC = new VClienteChat();
+		if(VCC.getHayError()) {
+			VCC.dispose();
+		}else {
+			VCC.setVisible(true);
+		}
 	}
 }

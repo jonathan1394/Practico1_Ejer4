@@ -3,6 +3,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import Excepciones.PersistenciaException;
+import Logica.Fachada;
 
 
 

@@ -6,14 +6,23 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import java.util.ArrayList;
 import Excepciones.PersistenciaException;
 
 
 
-public class Persistencia implements Remote{
-	private String Ruta="./datos.dat";
+public class Persistencia extends UnicastRemoteObject implements IPersistencia{
+	
+
+	private static final long serialVersionUID = 1L;
+	private String Ruta="./Datos.dat";
+	
+	public Persistencia() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	public List<String> Recuperar() throws PersistenciaException, ClassNotFoundException, RemoteException {
 		try {

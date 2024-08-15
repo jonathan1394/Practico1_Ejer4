@@ -6,20 +6,20 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.List;
 import java.util.Properties;
 
 import Excepciones.PersistenciaException;
-
-import java.util.List;
 import Grafica.VAdminChatVer;
+import Grafica.VAdminRespaldar;
 import Grafica.VentanaError;
 import Logica.IFachada;
 
-public class ControladorAdminChatVer {
+public class ControladorAdminRespaldar {
 	private IFachada f = null;
-	private VAdminChatVer MiVentana;
+	private VAdminRespaldar MiVentana;
 
-	public ControladorAdminChatVer(VAdminChatVer VP) {
+	public ControladorAdminRespaldar(VAdminRespaldar VP) {
 		try {
 			this.MiVentana = VP;
 			Properties p = new Properties();
@@ -51,8 +51,11 @@ public class ControladorAdminChatVer {
 
 	}
 	
+	public void Guardar() throws RemoteException, PersistenciaException {
+		f.RespaldarMensaje();
+	}
+	
 	public String ListarMensaje() throws RemoteException, PersistenciaException {
-		f.RecuperarMensaje();
 		List<String> L = f.ListarMensajes();
 		String aux="";
 		for(String S:L) {

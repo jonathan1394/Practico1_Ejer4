@@ -1,11 +1,12 @@
 package Logica;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 import Excepciones.PersistenciaException;
 
-public interface Ifachada extends Remote {
+public interface IFachada extends Remote {
 
 	public void IngresarMensajes(String VOM) throws RemoteException;
 	

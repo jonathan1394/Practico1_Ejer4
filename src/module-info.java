@@ -1,11 +1,8 @@
 /**
  * 
  */
-/**
- * 
- */
 module Practico_1 {
-	requires java.desktop;
-	requires java.rmi;
-	
+    exports Logica to java.rmi;
+    requires java.rmi;
+    requires java.desktop;
 }
