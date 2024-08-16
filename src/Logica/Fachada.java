@@ -72,8 +72,8 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			String NomArch = "src\\\\config\\\\config.properties";
 			p.load(new FileInputStream(NomArch));
 			String ip = p.getProperty("ip");
-			String puerto = p.getProperty("puerto");
-			P = (IPersistencia) Naming.lookup("//" + ip + ":" + "1010" + "/Persistencia");
+			String puerto = p.getProperty("puertoDB");
+			P = (IPersistencia) Naming.lookup("//" + ip + ":" + puerto + "/Persistencia");
 		} catch (RemoteException e) {
 			System.out.println("No es posible Conectarce con el servidor!!");
 		} catch (MalformedURLException e) {

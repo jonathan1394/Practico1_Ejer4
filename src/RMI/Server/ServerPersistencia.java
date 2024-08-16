@@ -20,14 +20,15 @@ public class ServerPersistencia {
 			String NomArch = "src\\config\\config.properties";
 			p.load(new FileInputStream(NomArch));
 			String ip = p.getProperty("ip");
-			String puerto = p.getProperty("puerto");
+			String puerto = p.getProperty("puertoDB");
+			
 
 			// pongo a correr el rmiregistry
 			LocateRegistry.createRegistry(Integer.parseInt("1010"));
 			// instancio mi Objeto Remoto y lo publico
 			IPersistencia P = new Persistencia();
-			System.out.println("Preparando servidor en: //" + ip + ":" + "1010" + "/Persistencia");
-			Naming.rebind("//" + ip + ":" + "1010" + "/Persistencia", P);
+			System.out.println("Preparando servidor en: //" + ip + ":" + puerto + "/Persistencia");
+			Naming.rebind("//" + ip + ":" + puerto + "/Persistencia", P);
 			System.out.println("Servidor de Persistencia Corriendo ...");
 		} catch (RemoteException e) {
 			System.out.println(e.getMessage());
