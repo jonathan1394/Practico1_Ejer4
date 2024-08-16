@@ -23,11 +23,11 @@ public class ServerPersistencia {
 			String puerto = p.getProperty("puerto");
 
 			// pongo a correr el rmiregistry
-			LocateRegistry.createRegistry(Integer.parseInt(puerto));
+			LocateRegistry.createRegistry(Integer.parseInt("1010"));
 			// instancio mi Objeto Remoto y lo publico
 			IPersistencia P = new Persistencia();
-			System.out.println("Preparando servidor en: //" + ip + ":" + puerto + "/fachada");
-			Naming.rebind("//" + ip + ":" + puerto + "/fachada", P);
+			System.out.println("Preparando servidor en: //" + ip + ":" + "1010" + "/Persistencia");
+			Naming.rebind("//" + ip + ":" + "1010" + "/Persistencia", P);
 			System.out.println("Servidor de Persistencia Corriendo ...");
 		} catch (RemoteException e) {
 			System.out.println(e.getMessage());

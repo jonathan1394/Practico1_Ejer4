@@ -13,7 +13,7 @@ import Excepciones.PersistenciaException;
 
 
 
-public class Persistencia extends UnicastRemoteObject implements IPersistencia{
+public class Persistencia extends UnicastRemoteObject implements Remote, IPersistencia {
 	
 
 	private static final long serialVersionUID = 1L;
